@@ -12,8 +12,6 @@ function App() {
   const [recipes, setRecipes] = useState([]);
 
 
-  // const APP_ID = '19b3d1dc'
-  // const APP_KEY = '7f90edf646392e32aece4bfeb5212287'
   const APP_ID=process.env.REACT_APP_APP_ID
   const APP_KEY=process.env.REACT_APP_APP_KEY
   const url = `https://api.edamam.com/search?q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}&from=0&to=12`;

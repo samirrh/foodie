@@ -1,16 +1,12 @@
+// Currently only saving to calender add share features and print out features
 import React from "react";
 import DatePicker from "react-datepicker";
 import { useState } from "react";
 import "react-datepicker/dist/react-datepicker.css";
-
-import {Modal,ModalOverlay,ModalContent,ModalHeader,ModalFooter,ModalBody,ModalCloseButton,Button,useDisclosure,Box} from "@chakra-ui/react";
+import {Modal,ModalOverlay,ModalContent,ModalHeader,ModalBody,ModalCloseButton,Button,useDisclosure,Box} from "@chakra-ui/react";
 
 function IngredientModal({ label, url }){
   var gapi = window.gapi
-  // var CLIENT_ID = "1005897480612-s9s8otsf7fn8n078ag07fsdifrimnb4i.apps.googleusercontent.com";
-  // var API_KEY = "AIzaSyAVAVuFKgHQnUyzYBxghTWGtWXdpsRoV6M";
-  // var DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest"];
-  // var SCOPES = "https://www.googleapis.com/auth/calendar.events";
   var CLIENT_ID = process.env.REACT_APP_CLIENT_ID;
   var API_KEY = process.env.REACT_APP_API_KEY;
   var DISCOVERY_DOCS = process.env.REACT_APP_DISCOVERY_DOCS;
@@ -131,10 +127,7 @@ function IngredientModal({ label, url }){
         
 
         /*
-            Uncomment the following block to get events
-        */
-        /*
-        // get events
+        // Getting events
         gapi.client.calendar.events.list({
           'calendarId': 'primary',
           'timeMin': (new Date()).toISOString(),
@@ -152,7 +145,7 @@ function IngredientModal({ label, url }){
       })
     })
   }
-  // give option to choose how long maybe for starters defualt 1 hour with forms and requires also make option array and go through
+  // for future improvement give option to choose how long maybe for starters defualt 1 hour with forms and requires also make option array and go through
     const [startDate, setStartDate] = useState(new Date());
     const { isOpen, onOpen, onClose } = useDisclosure()  
         return (
@@ -163,20 +156,17 @@ function IngredientModal({ label, url }){
                 <ModalContent>
                     <ModalHeader>Share</ModalHeader>
                     <ModalCloseButton/>
-                    <ModalBody>
+                    <ModalBody mb='4'>
                       <Box mb='1em'>
                         <h1><strong>Add to Calendar</strong></h1>
                         <h1>Choose a Date:</h1>
+                        <Box rounded='xl' borderColor='red' p={1} borderWidth="2px">
                         <DatePicker selected={startDate} onChange={date =>  setStartDate(date) } showTimeSelect/>
+                        </Box>
                       </Box>
                       
                       <Button colorScheme="teal" variant="outline" onClick={addtoGoogleCalendar}>Add To My Google Calendar</Button>
                     </ModalBody>
-                    <ModalFooter>
-                    <Button colorScheme="orange" mr={3} onClick={onClose}>
-                        Close
-                    </Button>
-                    </ModalFooter>
                 </ModalContent>
                 </Modal>
             </>

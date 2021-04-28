@@ -8,15 +8,7 @@ const Recipe = ({ recipe }) => {
   return (
   <Box centerContent maxW="md" borderWidth="2px" borderRadius="lg" overflow="hidden">
       <Image w='100%' src={image} alt={label}/>
-      <Box p="4">
-        <HStack>
-        <Box
-          mt="1"
-          fontWeight="semibold"
-          as="h4"
-          lineHeight="tight"
-          isTruncated
-        >
+      <Box p="4"> <HStack> <Box mt="1" fontWeight="semibold" as="h4" lineHeight="tight" isTruncated >
           {label}
         </Box>
         <Spacer/>
