@@ -1,2 +1,2 @@
 # Foodie
-by Samir Haque
+Find Recipes, See Ingredients, Add to Calendar
