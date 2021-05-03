@@ -7,4 +7,4 @@ Find Recipes, See Ingredients, Add to Calendar
 Made with React and Chakra UI 
 
 ## Note
-If browser blocks pop up oauth may need to unbloack and try again
+If browser blocks pop up for sign in (oauth client), may need to unbloack and try again
